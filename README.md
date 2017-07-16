@@ -1,4 +1,9 @@
-# Miffy
+Miffy
+=====
+
+[![Travis](https://img.shields.io/travis/expelledboy/miffy.svg)](https://travis-ci.org/expelledboy/miffy)
+[![Hex.pm](https://img.shields.io/hexpm/v/miffy.svg)](https://hex.pm/packages/miffy)
+[![Hex.pm](https://img.shields.io/hexpm/dt/miffy.svg)](https://hex.pm/packages/miffy)
 
 Jiffy wrapper which returns pretty maps.
 

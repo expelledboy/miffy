@@ -23,6 +23,6 @@ shell:
 	$(REBAR) shell
 
 publish:
-	$(REBAR) release
+	$(REBAR) hex publish
 
 .PHONY: all clean distclean build test shell publish
