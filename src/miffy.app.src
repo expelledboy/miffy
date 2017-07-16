@@ -1,0 +1,13 @@
+%% -*- erlang -*-
+
+{application, miffy,
+ [
+  {description, "Jiffy wrapper which returns pretty maps."},
+  {vsn, "1.0.0"},
+  {registered, []},
+  {applications, [kernel, stdlib]},
+
+  {maintainers, ["expelledboy"]},
+  {licenses, ["Apache 2.0"]},
+  {links, [{"Github", "https://github.com/expelledboy/miffy"}]}
+ ]}.
