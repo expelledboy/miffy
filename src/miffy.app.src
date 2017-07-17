@@ -3,7 +3,7 @@
 {application, miffy,
  [
   {description, "Jiffy wrapper which returns pretty maps."},
-  {vsn, "1.0.0"},
+  {vsn, "1.1.0"},
   {registered, []},
   {applications, [kernel, stdlib]},
 

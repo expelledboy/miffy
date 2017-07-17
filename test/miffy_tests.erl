@@ -9,24 +9,27 @@ decode_test() ->
     ?assertMatch(#{ key := set, value := #{ name := "expelledboy", level := 9000 } }, miffy:decode(Json, Types)).
 
 data_format_test() ->
-    Types = #{ atom => atom,
-               string => string,
-               obj => #{ sub => atom } },
-    Erlang = #{ atom => value,
-                list => ["value"],
-                string => "value",
-                bool => true,
-                integer => 1,
-                float => 1.0,
-                obj => #{ sub => value } },
+    Terms = #{ integer => 1,
+               float => 1.0,
+               atom => symbol,
+               binary => <<"binary">>,
+               string => "value",
+               obj => #{} },
+    TermTypes = #{ atom => atom,
+                   binary => binary,
+                   string => string },
+    Erlang = Terms#{ collection => lists:duplicate(10, Terms),
+                     sub => Terms },
+    Types = TermTypes#{ collection => {collection, TermTypes},
+                        sub => TermTypes },
     Json = miffy:encode(Erlang, Types),
-    ?assertMatch(Erlang, miffy:decode(Json, Types)).
+    ?assertEqual(Erlang, miffy:decode(Json, Types)).
 
 list_transation_test() ->
-    Erlang = #{ list => [ atom,
-                          "string",
-                          <<"binary">>,
-                          #{ obj => value } ] },
-    Special = #{list => [<<"atom">>,"string",<<"binary">>, #{<<"obj">> => <<"value">>}]},
-    Json = miffy:encode(Erlang),
-    ?assertMatch(Special, miffy:decode(Json)).
+    In = #{ list => [ atom,
+                      "string",
+                      <<"binary">>,
+                      #{ obj => value } ] },
+    Out = #{list => [<<"atom">>,"string",<<"binary">>, #{<<"obj">> => <<"value">>}]},
+    Json = miffy:encode(In),
+    ?assertEqual(Out, miffy:decode(Json)).
