@@ -5,11 +5,21 @@ Miffy
 [![Hex.pm](https://img.shields.io/hexpm/v/miffy.svg)](https://hex.pm/packages/miffy)
 [![Hex.pm](https://img.shields.io/hexpm/dt/miffy.svg)](https://hex.pm/packages/miffy)
 
-Jiffy wrapper which returns pretty maps.
+Jiffy and JSX wrapper which returns a more standard Erlang map.
 
 ### Usage
 
 Optional data types can be passed as a second parameter, to provide seemless translation.
+
+```erlang
+{deps,
+ [
+  {miffy, ".*", {git, "https://github.com/expelledboy/miffy.git", {tag, "2.0.0"}}},
+  %% which requires either peer dependency
+  {jiffy, ".*", {git, "https://github.com/davisp/jiffy.git", {tag, "0.14.11"}}},
+  {jsx, ".*", {git, "https://github.com/talentdeficit/jsx.git", {tag, "v2.9.0"}}}
+ ]}.
+```
 
 ```erlang
 Types = #{ atom => atom,

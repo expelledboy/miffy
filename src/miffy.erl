@@ -16,7 +16,8 @@ encode(EJson) ->
 -spec encode(map(), map()) -> binary().
 encode(EJson, Types) when is_map(EJson), is_map(Types) ->
     Data = translate(EJson,Types),
-    jiffy:encode(Data).
+    Parser = miffy_utils:parser(),
+    Parser:encode(Data).
 
 %% --
 
@@ -26,7 +27,8 @@ decode(Json) ->
 
 -spec decode(iolist() | binary(), map()) -> map().
 decode(Json, Types) ->
-    Data = jiffy:decode(Json, [return_maps]),
+    Parser = miffy_utils:parser(),
+    Data = Parser:decode(Json, [return_maps]),
     translate(Data, Types).
 
 %% --

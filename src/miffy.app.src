@@ -2,11 +2,10 @@
 
 {application, miffy,
  [
-  {description, "Jiffy wrapper which returns pretty maps."},
-  {vsn, "1.1.1"},
+  {description, "Jiffy and JSX wrapper which returns a more standard Erlang map."},
+  {vsn, "semver"},
   {registered, []},
-  {applications, [kernel, stdlib, jiffy]},
-
+  {applications, [kernel, stdlib]},
   {maintainers, ["expelledboy"]},
   {licenses, ["Apache 2.0"]},
   {links, [{"Github", "https://github.com/expelledboy/miffy"}]}
