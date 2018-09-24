@@ -8,6 +8,12 @@ decode_test() ->
     ?assertMatch(#{ key := "set", value := #{ name := "expelledboy", level := 9000 } }, miffy:decode(Json)),
     ?assertMatch(#{ key := set, value := #{ name := "expelledboy", level := 9000 } }, miffy:decode(Json, Types)).
 
+non_object_test() ->
+    ?assertEqual(1, miffy:decode(<<"1">>)),
+    ?assertEqual(true, miffy:decode(<<"true">>)),
+    ?assertEqual([], miffy:decode(<<"[]">>)),
+    ?assertEqual("string", miffy:decode(<<"'string'">>)).
+
 data_format_test() ->
     Terms = #{ integer => 1,
                float => 1.0,
